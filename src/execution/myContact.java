@@ -40,4 +40,11 @@ public class myContact implements contactADT {
         return firstname;
 
     }
+
+    private String GetLastname() {
+        System.out.print("Lastname: ");
+        String lastname = sc.next();
+        return lastname;
+
+    }
 }
