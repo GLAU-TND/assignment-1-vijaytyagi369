@@ -48,7 +48,31 @@ public class myContact implements contactADT {
 
     @Override
     public void deleteContact() {
+        Scanner sc = new Scanner(System.in);
+        printNames();
+        System.out.print("Press the number against the contact to delete it: ");
+        try {
+            int index = sc.nextInt();
+            if (index > MyContactsBook.size || index == 0) {
+                System.out.println("Invaild Input");
+            } else {
+                person p = MyContactsBook.getData(index - 1);
+                String name = p.getFirstName() + p.getLastName();
+                MyContactsBook.remove(index - 1);
+                System.out.println(name + "'s Contact has been removed Successfully");
+            }
+        } catch (InputMismatchException E) {
+            System.out.println("Integer input expected ");
+        }
 
+    }
+
+    private void printNames() {
+        System.out.println("Here are your all contacts:");
+        for (int i = 0; i < MyContactsBook.size; i++) {
+            person temp = MyContactsBook.getData(i);
+            System.out.println((i + 1) + "." + temp.getFirstName() + " " + temp.getLastName());
+        }
     }
 
     @Override
