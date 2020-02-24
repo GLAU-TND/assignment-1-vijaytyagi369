@@ -16,6 +16,7 @@ public class myContact implements contactADT {
     @Override
     public void addContact() {
 
+
     }
 
     @Override
@@ -111,6 +112,30 @@ public class myContact implements contactADT {
             }
         }
         return Email;
+    }
+
+    private int compareFirstName(String Firstname) {
+        int index = 0;
+        if (MyContactsBook.size == 0) {
+        } else {
+            for (int i = 0; i < MyContactsBook.size; i++) {
+                person temp = MyContactsBook.getData(i);
+                String name = temp.getFirstName();
+                name = name.toLowerCase();
+                Firstname = Firstname.toLowerCase();
+                if (name.compareTo(Firstname) < 0) {
+                    index++;
+                } else if (name.compareTo(Firstname) == 0) {
+                    return index;
+
+                } else {
+                    break;
+                }
+
+            }
+
+        }
+        return index;
     }
 
 }
