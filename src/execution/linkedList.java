@@ -25,5 +25,10 @@ public class linkedList<E>implements singleLinkedListadt<E> {
     private static class Node<E> {
         private E data;
         private Node<E> next;
+
+        private Node(E data,Node next){
+            this.data=data;
+            this.next=next;
+        }
     }
 }
