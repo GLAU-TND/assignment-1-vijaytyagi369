@@ -27,6 +27,23 @@ public class person {
         return email;
     }
 
+    public String getContactNumbers() {
+        StringBuilder contacts = new StringBuilder();
+        boolean a = false;
+        for (int i = 0; i < contactNumbers.size; i++) {
+            if (i == 0) {
+                contacts.append(contactNumbers.getData(i));
+            } else
+                contacts.append(", ").append(contactNumbers.getData(i));
+        }
+        if (contactNumbers.size == 0) {
+            contacts.append("null");
+        } else if (contactNumbers.size == 1) {
+            a = true;
+        }
+
+        return a ? "Contact: " + contacts : "Contacts:" + contacts;
+    }
 
 
 }
