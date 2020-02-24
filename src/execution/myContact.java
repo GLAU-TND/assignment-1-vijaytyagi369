@@ -75,10 +75,48 @@ public class myContact implements contactADT {
         }
     }
 
+
+
     @Override
     public void searchContact() {
+        int size = 0;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("You could search for a contact from their first names:");
+        String name = sc.next();
+        name = name.trim();
+        linkedList<Integer> lists = matchFirst(name);
+        boolean a = false;
+        size = lists.size;
+        if (size > 1) {
+            a = true;
+        }
 
+        System.out.println(a ? size + " Matches found!" : size + " Match found!");
+        for (int i = 0; i < size; i++) {
+            int index = lists.getData(i);
+            System.out.println(MyContactsBook.getData(index));
+        }
     }
+
+    private linkedList<Integer> matchFirst(String Firstname) {
+        linkedList<Integer> indexes = new linkedList<>();
+        if (MyContactsBook.size == 0) {
+        } else {
+            for (int i = 0; i < MyContactsBook.size; i++) {
+                person temp = MyContactsBook.getData(i);
+                String name = temp.getFirstName();
+                name = name.toLowerCase();
+                Firstname = Firstname.toLowerCase();
+
+                if (name.compareTo(Firstname) == 0) {
+                    indexes.add(i);
+                }
+
+            }
+        }
+        return indexes;
+    }
+
 
     private String GetFirstName() {
         System.out.println("Please Enter the name of the person");
