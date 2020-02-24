@@ -15,6 +15,18 @@ public class myContact implements contactADT {
 
     @Override
     public void addContact() {
+        System.out.println("You have chosen to add a new contact:");
+        String firstname = GetFirstName();
+        String lastname = GetLastname();
+        contactNumbers = GetContactNumbers();
+        String Email = GetEmail();
+        person newContact;
+        newContact = new person(firstname, lastname,contactNumbers, Email );
+        int index = compareFirstName(firstname);
+        MyContactsBook.add(index,newContact);
+        System.out.println("Contact Added SucessFully");
+        System.out.println();
+        System.out.println();
 
 
     }
