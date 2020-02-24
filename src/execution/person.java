@@ -1,6 +1,5 @@
 package execution;
 
-
 public class person {
 
     private String firstName;
@@ -50,6 +49,5 @@ public class person {
         return "Firstname: " + getFirstName() + "\n" + "Lastname:" + getLastName() + "\n" + getContactNumbers() + "\n" + "Email:" + getEmail() + "\n" + "-------- * -------- * -------- * --------\n" +
                 "-------- * -------- * -------- * --------";
     }
-
 
 }
