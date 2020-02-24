@@ -49,24 +49,53 @@ public class linkedList<E>implements singleLinkedListadt<E> {
     }
 
 
-
-
-
-
-
-
-
-
     @Override
     public void add(E item) {
-
         add(size,item);
-
     }
+
+    private E removeFirst() {
+        Node<E> temp = head;
+        E response = null;
+        if (head != null) {
+            head = head.getNext();
+        }
+        if (temp != null) {
+            size--;
+            response = temp.getData();
+
+        }
+        return response;
+    }
+    private E removeAfter(Node<E> afternode) {
+        Node<E> temp = afternode.getNext();
+        if (temp != null) {
+            afternode.next = temp.getNext();
+            size--;
+        }
+        E respone = temp.getData();
+        return respone;
+    }
+
+    public E remove(int index) {
+        E response = null;
+
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException(Integer.toString(index));
+        } else if (index == 0) {
+            response = removeFirst();
+        } else {
+            Node<E> previousNode = getNode(index - 1);
+            response = removeAfter(previousNode);
+        }
+        return response;
+    }
+
+
 
     @Override
     public E getData(int index) {
-        return null;
+        return getNode(index).getData();
     }
 
 
@@ -92,4 +121,5 @@ public class linkedList<E>implements singleLinkedListadt<E> {
             return next;
         }
     }
+
 }
