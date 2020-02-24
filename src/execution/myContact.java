@@ -47,4 +47,46 @@ public class myContact implements contactADT {
         return lastname;
 
     }
+
+    private linkedList<String> GetContactNumbers() {
+        linkedList<String> contactNumbers = new linkedList<String>();
+        System.out.print("ContactNumber: ");
+        String contactno = sc.next();
+        while (true) {
+            if (Pattern.matches("[0-9]+", contactno)) {
+                contactNumbers.add(contactno);
+                break;
+            } else {
+                System.out.println("Invaild PhoneNumber");
+
+            }
+        }
+        while (true) {
+            System.out.print("Do You Want to add a new Contactnumber? (y/n) :");
+            String a = ((sc.next()).toLowerCase());
+            char at = a.charAt(0);
+            if (a.length() > 1) {
+                System.out.println("Please Enter a Vaild Input i.e., y(lowercase) for Yes or n(lowercase for no)");
+                continue;
+            }
+            if (at == 'y') {
+                System.out.print("ContactNumber: ");
+                contactno = sc.next();
+                if (Pattern.matches("[0-9]+", contactno)) {
+
+                    contactNumbers.add(contactno);
+                } else {
+                    System.out.println("Invaild PhoneNumber");
+                }
+            } else if (at == 'n') {
+                break;
+            } else {
+                System.out.println("Please Enter a Vaild Input i.e., y(lowercase) for Yes or n(lowercase for NO)");
+            }
+        }
+
+        return contactNumbers;
+
+
+    }
 }
